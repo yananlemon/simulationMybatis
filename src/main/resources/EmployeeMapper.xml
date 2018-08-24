@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper interfaceFullPath="com.lemon.dao.IEmployeeDAO">
+	<attributesAndColumnsMap id="EmployeeMap"
+		type="com.lemon.entity.Employee">
+		<mapping attribute="employeeId" column="EMP_ID" />
+		<mapping attribute="firstName" column="FIRST_NAME" />
+		<mapping attribute="lastName" column="LAST_NAME" />
+		<mapping attribute="name" column="NAME" />
+		<mapping attribute="sex" column="SEX" />
+		<mapping attribute="birthday" column="BIRTHDAY" />
+	</attributesAndColumnsMap>
+
+	<!-- <select id="listEmployees" resultType="EmployeeMap">
+		select
+		EMP_ID,LAST_NAME,FIRST_NAME,NAME,SEX,BIRTHDAY from TM_EMPLY
+	</select> -->
+	
+	<select id="listEmployees" resultEntity="com.lemon.entity.Employee">
+		select
+			EMP_ID as employeeId,
+			LAST_NAME as lastName,
+			FIRST_NAME as firstName,
+			NAME as name,
+			SEX as sex,
+			BIRTHDAY as BIRTHDAY
+		from 
+			TM_EMPLY
+	</select>
+	
+	
+	<select id="getById" resultEntity="com.lemon.entity.Employee">
+		select
+			EMP_ID as employeeId,
+			LAST_NAME as lastName,
+			FIRST_NAME as firstName,
+			NAME as name,
+			SEX as sex,
+			BIRTHDAY as BIRTHDAY
+		from 
+			TM_EMPLY
+		where EMP_ID=?
+	</select>
+	
+	<insert id="insert" parameterType="com.lemon.entity.Employee">
+		insert into TM_EMPLY (NAME,FIRST_NAME,LAST_NAME,SEX,BIRTHDAY)
+		values (#{name},#{firstName},#{lastName},#{sex},#{birthday})
+	</insert>
+	
+	<update id="update" parameterType="com.lemon.entity.Employee">
+		update TM_EMPLY SET NAME=#{name},FIRST_NAME=#{firstName},LAST_NAME=#{lastName},SEX=#{sex},BIRTHDAY=#{birthday}
+		where EMP_ID=#{employeeId}
+	</update>
+	
+	
+	<delete id="delete">
+		delete from TM_EMPLY where EMP_ID=?
+	</delete>
+
+</mapper>

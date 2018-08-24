@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+	<dataSource>
+		<property name="driver" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/simulation_mybatis" />
+		<property name="username" value="root" />
+		<property name="password" value="123@qwe" />
+	</dataSource>
+	<mappers>
+		<mapper resource="EmployeeMapper.xml" />
+	</mappers>
+</configuration>
