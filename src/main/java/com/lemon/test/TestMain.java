@@ -44,13 +44,13 @@ public class TestMain {
 //			System.out.println(employe);
 
 			//test insert
-			Employee andy=new Employee();
+			/*Employee andy=new Employee();
 			andy.setBirthday(convertDate("1997-5-27"));
 			andy.setFirstName("bill");
 			andy.setLastName("gates");
 			andy.setName("bill.gates");
 			andy.setSex(2);
-			System.out.println(dao.insert(andy));
+			System.out.println(dao.insert(andy));*
 			
 			//test update
 			/*Employee andy=new Employee();
@@ -70,9 +70,6 @@ public class TestMain {
 			
 			List<Employee> users2=dao.listEmployees();
 			System.out.println(users2); */
-			
-			
-
 		}  
 		catch (Exception e)  
 		{  

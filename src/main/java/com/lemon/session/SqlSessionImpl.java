@@ -66,7 +66,7 @@ public class SqlSessionImpl implements ISqlSession {
 			}
 			return executeQuery(rs, resultType);
 		} catch (SQLException e) {
-			throw new SQLException("selectOne()");
+			throw new SQLException(e);
 		}finally{
 
 		}
@@ -201,7 +201,6 @@ public class SqlSessionImpl implements ISqlSession {
 				}
 			}
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

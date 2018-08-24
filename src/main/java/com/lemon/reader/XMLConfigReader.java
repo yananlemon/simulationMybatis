@@ -22,7 +22,8 @@ public class XMLConfigReader {
 	private static final String DEFAULT_CONFIG_FILE="simulation_mybatis_config.xml";
 	
 	static ClassLoader getClassLoader(){
-		return Thread.currentThread().getClass().getClassLoader();
+		ClassLoader cl = Thread.currentThread().getContextClassLoader(); 
+		return cl;
 	}
 	
 	static{
@@ -57,7 +58,7 @@ public class XMLConfigReader {
 						continue;
 					}
 					String mapperResource =nnm.getNamedItem("resource").getNodeValue();
-					readAllMapper(rootElement,mapperResource);
+					readAllMapper(mapperResource);
 				}
 			}
 		} catch (ParserConfigurationException e) {
@@ -71,8 +72,13 @@ public class XMLConfigReader {
 		}
 	}
 	
-	static void readAllMapper(Element rootElement,String mapperResource)throws Exception{
+	static void readAllMapper(String mapperResource)throws Exception{
+		DocumentBuilderFactory docBuildFactory = DocumentBuilderFactory.newInstance();
 		SqlMapper m=new SqlMapper();
+		InputStream input=getClassLoader().getResourceAsStream(mapperResource);
+		DocumentBuilder docBuilder=docBuildFactory.newDocumentBuilder();
+		Document document=docBuilder.parse(input);
+		Element rootElement=document.getDocumentElement();
 		String fullPath=rootElement.getAttribute("interfaceFullPath");
 		m.setInterfaceFullPath(fullPath);
 		NodeList list=rootElement.getChildNodes();
