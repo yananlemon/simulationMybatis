@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE 手表 SYSTEM "watches.dtd">
+<手表>
+	<a>fsdfsdf</a>
+	<机械表>
+		<手表名称>雪花面Grand Seiko</手表名称>
+		<手表价格>40300</手表价格>
+	</机械表>
+	<石英表>
+		<手表名称>Gshock</手表名称>
+		<手表价格>1300</手表价格>
+	</石英表>
+</手表>

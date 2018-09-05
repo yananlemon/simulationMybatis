@@ -1,0 +1,5 @@
+<!ELEMENT 手表(机械表,石英表)>
+<!ELEMENT 机械表(手表名称,手表价格)>
+<!ELEMENT 石英表(手表名称,手表价格)>
+<!ELEMENT 手表名称(#PCDATA)>
+<!ELEMENT 手表价格(#PCDATA)>
